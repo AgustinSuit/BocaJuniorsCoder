@@ -1,0 +1,124 @@
+@use 'variables' as *;
+
+/* Grid Layout for Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+/* Individual Player & Trophy Card */
+.player-card {
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+  position: relative;
+  transition: all $transition-smooth;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: $glass-backdrop;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: $boca-gold;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5), $shadow-gold;
+
+    .card-img-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .badge-number {
+      background: $boca-gold;
+      color: $boca-blue-dark;
+      transform: scale(1.1);
+    }
+  }
+
+  .card-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(0, 54, 102, 0.4) 0%, rgba(0, 18, 41, 0.9) 100%);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform $transition-smooth;
+    }
+
+    .card-overlay-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0, 20, 42, 0.95) 100%);
+    }
+  }
+
+  .badge-position {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 20, 42, 0.85);
+    border: 1px solid $boca-gold;
+    color: $boca-gold;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: $radius-sm;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+  }
+
+  .badge-number {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    background: rgba(0, 34, 68, 0.9);
+    border: 1px solid rgba(255, 199, 0, 0.4);
+    color: $white;
+    font-family: $font-heading;
+    font-size: 1.2rem;
+    border-radius: $radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all $transition-fast;
+  }
+
+  .card-content {
+    padding: 1.25rem 1rem;
+    text-align: center;
+    margin-top: auto;
+    z-index: 2;
+
+    h3 {
+      font-size: 1.35rem;
+      color: $white;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .player-subtitle {
+      font-size: 0.85rem;
+      color: $text-muted;
+      font-weight: 400;
+    }
+  }
+}
+
+/* Iconic Figures Card */
+.iconic-card {
+  @extend .player-card;
+  .card-img-wrapper {
+    aspect-ratio: 4/3;
+  }
+}

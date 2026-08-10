@@ -1,0 +1,155 @@
+@use 'variables' as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: $glass-bg;
+  backdrop-filter: $glass-backdrop;
+  -webkit-backdrop-filter: $glass-backdrop;
+  border-bottom: 1px solid $glass-border;
+  padding: 0.75rem 1.5rem;
+  transition: all $transition-smooth;
+  box-shadow: $shadow-sm;
+
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: $white;
+    font-family: $font-heading;
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    
+    .shield-icon {
+      width: 38px;
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(255, 199, 0, 0.4));
+      transition: transform $transition-fast;
+    }
+
+    &:hover .shield-icon {
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    .brand-title {
+      background: linear-gradient(90deg, #FFFFFF, $boca-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      span {
+        color: $boca-gold;
+      }
+    }
+  }
+
+  /* Desktop Nav */
+  .main-nav {
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: $text-muted;
+      border-radius: $radius-sm;
+      position: relative;
+      transition: all $transition-fast;
+
+      &:hover {
+        color: $boca-gold;
+        background: rgba(255, 199, 0, 0.08);
+      }
+
+      &.active {
+        color: $boca-gold;
+        font-weight: 700;
+        background: rgba(255, 199, 0, 0.14);
+        box-shadow: inset 0 0 0 1px $boca-gold-glow;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 20px;
+          height: 3px;
+          background: $boca-gold;
+          border-radius: $radius-full;
+          box-shadow: $shadow-gold;
+        }
+      }
+    }
+  }
+
+  /* Hamburger Mobile Toggle */
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255, 199, 0, 0.3);
+    color: $boca-gold;
+    font-size: 1.5rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: $radius-sm;
+    transition: all $transition-fast;
+
+    &:hover, &:focus {
+      background: rgba(255, 199, 0, 0.15);
+    }
+  }
+}
+
+/* Mobile Drawer Overlay */
+@media (max-width: 992px) {
+  .site-header {
+    .mobile-menu-btn {
+      display: block;
+    }
+
+    .main-nav {
+      position: fixed;
+      top: 65px;
+      right: -100%;
+      width: 280px;
+      height: calc(100vh - 65px);
+      background: rgba(0, 18, 41, 0.96);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid $glass-border;
+      padding: 2rem 1.5rem;
+      transition: right $transition-smooth;
+
+      &.open {
+        right: 0;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+      }
+
+      ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 0.85rem 1.25rem;
+        font-size: 1.1rem;
+        border-radius: $radius-md;
+      }
+    }
+  }
+}

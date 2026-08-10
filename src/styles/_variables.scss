@@ -1,0 +1,32 @@
+/* Boca Juniors Modern Color Tokens */
+$boca-blue-dark: #001229;
+$boca-blue-main: #002244;
+$boca-blue-card: rgba(0, 34, 68, 0.75);
+$boca-blue-light: #003666;
+$boca-gold: #FFC700;
+$boca-gold-hover: #FFE066;
+$boca-gold-glow: rgba(255, 199, 0, 0.35);
+$text-light: #F4F6F9;
+$text-muted: #A0B0C0;
+$white: #FFFFFF;
+$black: #080C10;
+
+/* Glassmorphism & Effects */
+$glass-bg: rgba(0, 24, 51, 0.7);
+$glass-border: rgba(255, 199, 0, 0.18);
+$glass-backdrop: blur(12px);
+$shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+$shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4);
+$shadow-gold: 0 0 20px rgba(255, 199, 0, 0.3);
+
+/* Typography */
+$font-heading: 'Bebas Neue', cursive, sans-serif;
+$font-body: 'Outfit', 'Montserrat', system-ui, sans-serif;
+
+/* Transitions & Radius */
+$transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-full: 9999px;
