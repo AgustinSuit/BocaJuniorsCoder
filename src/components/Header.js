@@ -19,7 +19,7 @@ export function renderHeader(activePage = 'inicio') {
     <header class="site-header">
       <div class="header-container">
         <a href="${basePath}/index.html" class="brand-logo">
-          <img src="${basePath}/img/Favicon.png" alt="Escudo Boca Juniors" class="shield-icon">
+          <img src="/img/Favicon.png" alt="Escudo Boca Juniors" class="shield-icon">
           <div class="brand-title">Boca <span>Juniors</span></div>
         </a>
 
