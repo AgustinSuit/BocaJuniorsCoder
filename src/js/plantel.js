@@ -12,9 +12,7 @@ export function initPlantelPage() {
   let currentCategory = 'todos';
   let searchQuery = '';
 
-  // Determine base path for images
-  const isRoot = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || !window.location.pathname.includes('/pages/');
-  const imgPath = isRoot ? './img' : '../img';
+  const imgPath = '/img';
 
   function renderPlayers() {
     const filtered = playersData.filter(player => {
